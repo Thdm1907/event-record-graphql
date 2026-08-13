@@ -209,8 +209,8 @@ event-record-graphql/
 │   └── seed.ts              # populates sites.json + events.db with sample data
 ├── codegen.ts             # @graphql-codegen config — points at server schema
 ├── .env
-├── PLAN.md
-├── DESIGN.md
+├── plan.md
+├── design.md
 ├── package.json           # root: server deps + concurrently
 └── tsconfig.json
 ```
