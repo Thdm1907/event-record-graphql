@@ -301,48 +301,48 @@ Scripts wired in root `package.json`:
 ## Implementation Checklist
 
 ### Phase 1: Workspace & Root Setup
-- [ ] Root `package.json` with npm workspaces (`preseed`, `generator`, `client`)
-- [ ] TypeScript configuration (`tsconfig.json`)
-- [ ] Environment file `.env` and `.gitignore` configuration
+- [x] Root `package.json` with npm workspaces (`preseed`, `generator`, `client`)
+- [x] TypeScript configuration (`tsconfig.json`)
+- [x] Environment file `.env` and `.gitignore` configuration
 
 ### Phase 2: Offline Data Preseed (`preseed/`)
-- [ ] `preseed/package.json` & `preseed/tsconfig.json`
-- [ ] `preseed/generate.ts`: Seed generator (20 sites, 5-300 events/site, 6 event types)
-- [ ] Direct export to `preseed/data/sites.json` and `preseed/data/events.json`
-- [ ] Direct export to `preseed/data/events.db` via `better-sqlite3`
-- [ ] `preseed/README.md` with instructions on copying data to `data/`
+- [x] `preseed/package.json` & `preseed/tsconfig.json`
+- [x] `preseed/generate.ts`: Seed generator (20 sites, 5-300 events/site, 6 event types)
+- [x] Direct export to `preseed/data/sites.json` and `preseed/data/events.json`
+- [x] Direct export to `preseed/data/events.db` via SQLite / Prisma
+- [x] `preseed/README.md` with instructions on copying data to `data/`
 
 ### Phase 3: Live Event Generator (`generator/`)
-- [ ] `generator/package.json` & `generator/tsconfig.json`
-- [ ] `generator/src/config.ts`: CLI arg parser with `commander` (`--endpoint`, `--interval`, `--burst`, etc.)
-- [ ] `generator/src/eventFactory.ts`: Random `EventRecordInput` builder using `@faker-js/faker`
-- [ ] `generator/src/sender.ts`: `graphql-request` wrapper with error retry
-- [ ] `generator/src/subscriber.ts`: `graphql-ws` WebSocket echo loop (`--subscribe`)
-- [ ] `generator/src/main.ts`: Console app runner & lifecycle manager
-- [ ] `generator/README.md` with usage examples
+- [x] `generator/package.json` & `generator/tsconfig.json`
+- [x] `generator/src/config.ts`: CLI arg parser with `commander` (`--endpoint`, `--interval`, `--burst`, etc.)
+- [x] `generator/src/eventFactory.ts`: Random `EventRecordInput` builder using `@faker-js/faker`
+- [x] `generator/src/sender.ts`: `graphql-request` wrapper with error retry
+- [x] `generator/src/subscriber.ts`: `graphql-ws` WebSocket echo loop (`--subscribe`)
+- [x] `generator/src/main.ts`: Console app runner & lifecycle manager
+- [x] `generator/README.md` with usage examples
 
 ### Phase 4: GraphQL Server (`src/`)
-- [ ] Data domain & types (`SiteInfo`, `EventRecord`)
-- [ ] Store interfaces (`IEventRecordStore`, `ISiteStore`)
-- [ ] JSON data store (`JsonEventRecordStore`, `JsonSiteStore`)
-- [ ] Prisma SQLite store (`schema.prisma`, `PrismaEventRecordStore`, `PrismaSiteStore`)
-- [ ] Config-based store factory (`StoreFactory`)
-- [ ] Engine Manager & Processor Pipeline (`LogProcessor`, `StoreProcessor`)
-- [ ] Apollo Server 4 + `type-graphql` schemas, resolvers & inputs
-- [ ] Subscriptions setup (`graphql-ws` + `ws`)
-- [ ] Metrics endpoint (`prom-client` on `GET /metrics`)
+- [x] Data domain & types (`SiteInfo`, `EventRecord`)
+- [x] Store interfaces (`IEventRecordStore`, `ISiteStore`)
+- [x] JSON data store (`JsonEventRecordStore`, `JsonSiteStore`)
+- [x] Prisma SQLite store (`schema.prisma`, `PrismaEventRecordStore`, `PrismaSiteStore`)
+- [x] Config-based store factory (`StoreFactory`)
+- [x] Engine Manager & Processor Pipeline (`LogProcessor`, `StoreProcessor`)
+- [x] Apollo Server 4 + `type-graphql` schemas, resolvers & inputs
+- [x] Subscriptions setup (`graphql-ws` + `ws`)
+- [x] Metrics endpoint (`prom-client` on `GET /metrics`)
 
 ### Phase 5: Client Application (`client/`)
-- [ ] React + TypeScript + Vite scaffolding
-- [ ] Apollo Client setup with HTTP & WebSocket links
-- [ ] GraphQL Code Generator integration
-- [ ] UI Components: EventList, SiteList, EventForm, EventFeed, MetricsSummary
-- [ ] Sidebar navigation with React Router
+- [x] React + TypeScript + Vite scaffolding
+- [x] Apollo Client setup with HTTP & WebSocket links
+- [x] GraphQL Code Generator integration
+- [x] UI Components: EventList, SiteList, EventForm, EventFeed, MetricsSummary
+- [x] Sidebar navigation with React Router
 
 ### Phase 6: End-to-End Verification
-- [ ] Test preseed generation and data copying to `data/`
-- [ ] Verify server starts with both JSON and SQLite backends
-- [ ] Run event generator against live GraphQL server and verify incoming events
-- [ ] Validate subscription stream on frontend & generator echo
+- [x] Test preseed generation and data copying to `data/`
+- [x] Verify server starts with both JSON and SQLite backends
+- [x] Run event generator against live GraphQL server and verify incoming events
+- [x] Validate subscription stream on frontend & generator echo
 
 

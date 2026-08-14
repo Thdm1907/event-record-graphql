@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model SiteInfo {
+  siteId       Int           @id @default(autoincrement())
+  siteName     String
+  addressLine1 String
+  addressLine2 String?
+  city         String
+  state        String
+  country      String
+  postalCode   String
+  eventRecords EventRecord[]
+}
+
+model EventRecord {
+  id            String   @id @default(uuid())
+  description   String
+  eventDateTime String
+  eventGuid     String   @unique
+  eventType     String
+  metadata      String
+  createdAt     DateTime @default(now())
+  siteId        Int
+  site          SiteInfo @relation(fields: [siteId], references: [siteId])
+}

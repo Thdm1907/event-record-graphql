@@ -1,0 +1,56 @@
+{
+  "name": "event-record-graphql",
+  "version": "1.0.0",
+  "private": true,
+  "description": "High-throughput GraphQL event recording system with JSON and SQLite backends",
+  "main": "src/main.ts",
+  "workspaces": [
+    "preseed",
+    "generator",
+    "client"
+  ],
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc",
+    "build:all": "tsc && tsc -p preseed/tsconfig.json && tsc -p generator/tsconfig.json && npm run build --workspace=client",
+    "clean": "cmd /c clean.bat",
+    "start": "node dist/main.js",
+    "prisma:generate": "npx prisma generate --schema=src/data/prisma/schema.prisma",
+    "prisma:push": "npx prisma db push --schema=src/data/prisma/schema.prisma",
+    "preseed": "npm run preseed --workspace=preseed",
+    "generate": "npm run start --workspace=generator"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.13.0",
+    "@graphql-tools/schema": "^10.0.4",
+    "@prisma/client": "5.10.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "cors": "^2.8.5",
+    "dataloader": "^2.2.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "graphql": "^16.8.1",
+    "graphql-subscriptions": "^2.0.0",
+    "@graphql-yoga/subscription": "^5.0.5",
+    "graphql-ws": "^5.15.0",
+    "pino": "^8.21.0",
+    "prom-client": "^15.1.3",
+    "reflect-metadata": "^0.2.1",
+    "type-graphql": "^2.0.0-beta.6",
+    "uuid": "^9.0.1",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.23",
+    "@types/node": "^20.11.24",
+    "@types/uuid": "^9.0.8",
+    "@types/ws": "^8.5.10",
+    "concurrently": "^8.2.2",
+    "pino-pretty": "^10.3.1",
+    "prisma": "5.10.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}

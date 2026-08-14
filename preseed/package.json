@@ -1,0 +1,22 @@
+{
+  "name": "preseed",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline preseed data generator for 20 sites and random events per site in JSON and SQLite format",
+  "main": "generate.ts",
+  "scripts": {
+    "preseed": "tsx generate.ts"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/sqlite3": "^3.1.11",
+    "@types/uuid": "^9.0.8",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}

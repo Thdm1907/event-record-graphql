@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+.env
+*.log
+
+# Workspace output directories
+preseed/data/
+preseed/node_modules/
+generator/node_modules/
+client/node_modules/
+client/dist/
+
+# Active data (keep structure, ignore generated runtime data files if desired)
+# data/*.json
+# data/*.db
